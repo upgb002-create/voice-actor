@@ -16,8 +16,7 @@ button{font:inherit;background:#232838;color:var(--pp);border:1px solid #3a4157;
 #sw{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #stage{position:relative;flex:none;width:640px;height:360px;overflow:hidden;background:linear-gradient(#1b2030,#0b0d12)}
 .h{position:absolute;display:flex;align-items:center;justify-content:center;cursor:pointer;color:transparent;text-align:center;line-height:1.3;border-radius:6px}.h span{display:none;pointer-events:none}
-.h.dr{outline:2px dashed var(--am);outline-offset:-2px;background:#d9a44122}
-.h.a{background:#000a;color:var(--am);border:1.5px solid var(--am);border-radius:10px;font-size:1.2em;outline:0}.h.a span{display:block}
+.h.a{background:#000a;color:var(--am);border:1.5px solid var(--am);border-radius:10px;font-size:.85em;outline:0}.h.a span{display:block}
 .h.lock{background:none;border:0;outline:0;color:#fff;font-size:2.4em;text-shadow:0 0 8px #000,0 0 3px #000}.h.lock span{display:block}
 .rz{position:absolute;right:0;bottom:0;width:14px;height:14px;background:#7cf;cursor:nwse-resize;display:none}
 .edit .h{outline:2px dashed #7cf;background:#77ccff22;color:#fff}.edit .h span{display:block;font-size:.8em}.edit .rz{display:block}
@@ -56,8 +55,17 @@ button{font:inherit;background:#232838;color:var(--pp);border:1px solid #3a4157;
 .bk{display:inline-block;margin:3px}.opt{display:block;margin:4px 0}.ev label{display:inline-block;margin:3px 8px 3px 0;font-size:13px}
 #shw{width:min(380px,88vw)}#sh{display:flex;gap:3px;align-items:flex-end;height:150px;padding:0 6px;touch-action:none}
 .bkv{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;border-radius:3px 3px 0 0;background:hsl(var(--h) 35% 38%);border:1px solid #0006;color:#f3e9d2;cursor:grab;user-select:none;padding:6px 0;overflow:hidden;position:relative}
-.bkv b{font:800 20px 'Nanum Myeongjo',serif;border-bottom:1px solid #fff5;padding-bottom:2px;margin-bottom:4px}.bkv span{writing-mode:vertical-rl;font-size:11px;line-height:1.1}.bkv.lift{z-index:5;cursor:grabbing;box-shadow:0 8px 14px #000a}
+.bkv b{font:800 20px 'Nanum Myeongjo',serif;border-bottom:1px solid #fff5;padding-bottom:2px;margin-bottom:4px}.bkv span{writing-mode:vertical-rl;font-size:13px;line-height:1.15;margin-top:2px}.bkv.lift{z-index:5;cursor:grabbing;box-shadow:0 8px 14px #000a}
 .plank{height:10px;background:#6a4a2a;border-radius:2px}
+.c.p{cursor:pointer}#inv{position:relative;z-index:15}
+#md2{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:25}.pi{max-width:100%;max-height:46vh;display:block;margin:auto}
+.card{background:#f4efe2;color:#222;padding:18px 22px;border-left:6px solid #c0392b;border-radius:4px;font-family:'Nanum Myeongjo',serif}.card small{letter-spacing:.2em;color:#888}.card b{display:block;font-size:22px}
+.pcw{width:min(520px,94vw);min-height:250px;background:#dfe6f1;color:#1c2330;border:2px solid #5a6b8c;border-radius:8px;overflow:hidden}.pcw .tb{background:#3b4a6b;color:#fff;padding:6px 10px;font-size:13px;display:flex;justify-content:space-between;align-items:center}.pcw .tb button{padding:1px 8px;font-size:12px}
+.pcw .desk{display:flex;gap:28px;padding:30px}.pcw .desk button{display:flex;flex-direction:column;align-items:center;background:none;border:0;color:#1c2330;font-size:13px}.pcw .desk i{font-style:normal;font-size:36px}
+.mrow{display:flex;gap:10px;padding:9px 12px;border-bottom:1px solid #b9c3d6;cursor:pointer;font-size:13px}.mrow:hover{background:#cfd9ea}.mrow b{width:9em;flex:none}.mrow span{flex:1}
+.mv{padding:12px 16px;font-size:14px}.mh2{border-bottom:1px solid #b9c3d6;padding-bottom:6px;margin-bottom:8px;font-size:12px;color:#4a5875;line-height:1.6}
+.web{padding:16px}.sbx{display:flex;gap:8px;align-items:center;border:1px solid #8a97b3;background:#fff;border-radius:20px;padding:6px 12px}.sbx input{flex:1;border:0;outline:0;font:inherit;background:none;min-width:0}
+#hh{display:none;margin-top:4px;background:#fff;border:1px solid #cfd6e4;border-radius:8px}#hh div,#hh small{display:block;padding:6px 12px;font-size:13px;color:#333}
 .end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:10px}.end h1{font:800 clamp(28px,7vw,56px) 'Nanum Myeongjo',serif;margin:0}
 #toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#000d;border:1px solid var(--am);padding:5px 14px;border-radius:20px;opacity:0;transition:opacity .3s;z-index:30;pointer-events:none}#toast.on{opacity:1}
 #rot{display:none;position:fixed;inset:0;background:#000e;z-index:50;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
@@ -68,10 +76,10 @@ button{font:inherit;background:#232838;color:var(--pp);border:1px solid #3a4157;
 <div id="app"><div id="top"><b id="logo" onclick="homeQ()" title="처음 화면">OFF THE RECORD</b><span id="loc"></span><button id="bg" onclick="bgt()" title="배경음악 켜기/끄기" aria-label="배경음악 켜기/끄기">🔊</button><button id="bm" onclick="map()">지도</button><button id="bh" onclick="hint()">힌트</button></div>
 <div id="sw"><div id="stage"></div></div><div id="inv"></div></div>
 <div id="rot"><div style="font-size:40px">📱↻</div><p>가로로 돌려서 플레이해 주세요</p><button onclick="document.getElementById('rot').remove()">그냥 계속하기</button></div>
-<div id="md"></div><div id="toast"></div>
+<div id="md"></div><div id="md2"></div><div id="toast"></div>
 <script>
 const $=s=>document.querySelector(s);
-const IT={remote:['🎛️','리모콘','romote','remote'],phone:['📱','미오의 폰','phone'],card:['🪪','제작사 명함','card'],paper:['📄','세로쓰기 종이','paper'],log:['🎧','음성 로그','log'],key:['🗝️','서랍장 키','key'],con:['📑','신작 계약서','contract'],bun:['🗂️','증거 꾸러미','bundle']};
+const IT={remote:['🎛️','리모콘','romote','remote'],phone:['📱','미오의 폰','phone'],card:['🪪','제작사 명함','card'],paper:['📄','대본','paper'],log:['🎧','음성 로그','log'],key:['🗝️','서랍장 키','key'],con:['📑','신작 계약서','contract'],bun:['🗂️','증거 꾸러미','bundle']};
 const S={inv:[],f:{},v:'d',hc:{}};let sel=null,HS=[],Q=[],CB=null,OV={},SK='';
 const EDIT=/[?&]edit/.test(location.search);
 /* ---- 파일 규칙: images/bg-*(배경) ch-*(인물) cut-*(엔딩 컷) item-*(아이템), audio/*.mp3. 파일이 없으면 건너뜀 ---- */
@@ -82,7 +90,7 @@ const CH={'다카하시':'takahashi','대표':'kuroda','미오':'mio','유키':'
 const NM={'대표':'쿠로다 마사유키','미오':'이시카와 미오','탐정':''};
 /* 클릭 영역 보정 파일(선택): hotspots.json */
 fetch('hotspots.json').then(r=>r.ok?r.json():{}).then(j=>{OV=j||{}}).catch(()=>{});
-function inv(){const t=S.inv.map(k=>`<div class="c${sel==k?' s':''}" data-k="${k}"><div class="ci">${[IT[k][2],IT[k][3]].filter(Boolean).map(n=>im('item-'+n,'class="ii" onload="this.parentNode.lastElementChild.style.display=\'none\'"')).join('')}<span>${IT[k][0]}</span></div><small>${IT[k][1]}</small></div>`).join('');$('#inv').innerHTML=t?t+'<small class="tip">끌어다 놓거나, 눌러서 선택한 뒤 대상을 누르세요</small>':'<small class="tip">인벤토리 비어 있음</small>';document.querySelectorAll('.h').forEach(h=>h.classList.toggle('dr',!!sel))}
+function inv(){const t=S.inv.map(k=>`<div class="c${sel==k?' s':''}${USE.has(k)?'':' p'}" data-k="${k}"><div class="ci">${[IT[k][2],IT[k][3]].filter(Boolean).map(n=>im('item-'+n,'class="ii" onload="this.parentNode.lastElementChild.style.display=\'none\'"')).join('')}<span>${IT[k][0]}</span></div><small>${IT[k][1]}</small></div>`).join('');$('#inv').innerHTML=t?t+'<small class="tip">눌러서 확인하고, 사용할 땐 끌어다 놓으세요</small>':'<small class="tip">인벤토리 비어 있음</small>'}
 function give(k){if(!S.inv.includes(k))S.inv.push(k);inv();toast(IT[k][1]+' 획득')}
 function rm(k){S.inv=S.inv.filter(x=>x!=k);inv()}
 function toast(t){const e=$('#toast');e.textContent=t;e.className='on';setTimeout(()=>e.className='',1800)}
@@ -94,12 +102,23 @@ function editInit(){$('#stage').classList.add('edit');panel();document.querySele
 e.onpointermove=m=>{const dx=(m.clientX-sx)/st.width*100,dy=(m.clientY-sy)/st.height*100;if(rz){h[2]=Math.max(2,o[2]+dx);h[3]=Math.max(2,o[3]+dy)}else{h[0]=o[0]+dx;h[1]=o[1]+dy}e.style.left=h[0]+'%';e.style.top=h[1]+'%';e.style.width=h[2]+'%';e.style.height=h[3]+'%';OV[SK+':'+i]=h.slice(0,4).map(v=>Math.round(v*10)/10);panel()}}})}
 function panel(){let p=$('#ep');if(!p){p=document.createElement('div');p.id='ep';p.innerHTML='<b>수정 모드</b> 점선 박스를 끌어 옮기고, 오른쪽 아래 모서리로 크기를 조절하세요.<br><button onclick="navigator.clipboard&&navigator.clipboard.writeText($(\'#et\').value)">좌표 복사</button> 복사한 내용을 hotspots.json 파일로 저장해 올려 주세요.<textarea id="et" rows="5" readonly></textarea>';document.body.append(p)}$('#et').value=JSON.stringify(OV)}
 function go(h,it){sel=null;inv();if(it&&h[6]!==it)return say([['','여기에는 쓸 수 없다.']]);h[5](it)}
-$('#stage').addEventListener('click',e=>{if(EDIT)return;const h=e.target.closest('.h');if(h)go(HS[h.dataset.i],sel)});
-$('#inv').onpointerdown=e=>{const c=e.target.closest('.c');if(!c)return;const k=c.dataset.k,x=e.clientX,y=e.clientY;let m=0;const g=document.createElement('div');g.className='g';g.textContent=IT[k][0];
-const hl=v=>document.querySelectorAll('.h').forEach(h=>h.classList.toggle('dr',v));
-const mv=v=>{if(Math.hypot(v.clientX-x,v.clientY-y)>8){if(!m){m=1;hl(1)}document.body.append(g);g.style.left=v.clientX+'px';g.style.top=v.clientY+'px'}};
-const up=v=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);removeEventListener('pointercancel',up);g.remove();hl(0);if(m){const h=document.elementFromPoint(v.clientX,v.clientY)?.closest('.h');if(h)go(HS[h.dataset.i],k)}else if(k=='phone'){S.f.un?phone():pat()}else{sel=sel==k?null:k;inv()}};
+$('#stage').addEventListener('click',e=>{if(EDIT)return;const h=e.target.closest('.h');if(h&&(!sel||inn(h,e.clientX,e.clientY)))go(HS[h.dataset.i],sel)});
+const USE=new Set(['remote','key','bun']);
+const inn=(el,x,y)=>{const r=el.getBoundingClientRect(),dx=r.width*.2,dy=r.height*.2;return x>=r.left+dx&&x<=r.right-dx&&y>=r.top+dy&&y<=r.bottom-dy};
+$('#inv').onclick=e=>{const c=e.target.closest('.c');if(c&&!USE.has(c.dataset.k))openItem(c.dataset.k)};
+$('#inv').onpointerdown=e=>{const c=e.target.closest('.c');if(!c||!USE.has(c.dataset.k))return;const k=c.dataset.k,x=e.clientX,y=e.clientY;let m=0;const g=document.createElement('div');g.className='g';g.textContent=IT[k][0];
+const mv=v=>{if(Math.hypot(v.clientX-x,v.clientY-y)>8){m=1;document.body.append(g);g.style.left=v.clientX+'px';g.style.top=v.clientY+'px'}};
+const up=v=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);removeEventListener('pointercancel',up);g.remove();if(m){const h=document.elementFromPoint(v.clientX,v.clientY)?.closest('.h');if(h&&inn(h,v.clientX,v.clientY))go(HS[h.dataset.i],k)}else{sel=sel==k?null:k;inv()}};
 addEventListener('pointermove',mv);addEventListener('pointerup',up);addEventListener('pointercancel',up)};
+function pop(h){$('#md2').innerHTML=`<div class="mb"><button class="x" onclick="cp()">✕</button>${h}</div>`;$('#md2').style.display='flex'}
+function cp(){$('#md2').style.display='none'}
+const CTX='<h3>📑 신작 계약서</h3><p>출연 및 음성 이용 계약. …</p><p style="font-size:9px;opacity:.75">제12조 AI 학습 및 상업적 활용 포괄 동의. 갑은 을의 음성을 AI 학습 및 상업적으로 활용할 수 있다.</p><p>서명일: <b>8월 7일</b></p>';
+function openItem(k){if(k=='phone')return S.f.un?phone():pat();
+const L={card:'<h3>🪪 제작사 명함</h3>'+im('item-card','class="pi" onload="this.nextElementSibling.style.display=\'none\'"')+'<div class="card"><small>STUDIO HANABI</small><b>스튜디오 하나비</b><p style="margin:6px 0 0">대표 토도 슈이치</p></div>',
+paper:'<h3>📄 대본</h3><div class="v">미래소년의 모험</div>',
+contract:CTX,
+log:'<h3>🎧 음성 로그</h3><p>MIO_voice_1011.wav · 2026-10-11<br>MIO_voice_1014.wav · 2026-10-14<br>MIO_voice_1019.wav · 2026-10-19</p>'};
+pop(L[IT[k][2]]||L[k])}
 /* ---- 대화창: 문장 단위로 나눠 보여줌 ---- */
 function chunk(t){const ss=t.match(/[^.!?。]+[.!?。]+["”’)]*\s*|[^.!?。]+$/g)||[t],o=[];let c='';for(const x of ss){if(c&&(c+x).length>60){o.push(c.trim());c=''}c+=x}if(c.trim())o.push(c.trim());return o}
 function say(a,cb){Q=a.flatMap(l=>chunk(l[1]).map(t=>[l[0],t,l[2]]));CB=cb;$('#dlg').style.display='flex';nx()}
@@ -116,7 +135,7 @@ function prol(){document.body.classList.remove('ttl');fit();S.go=1;bgs();R('bg-o
 function map(){cm();R(S.f.hotel?'bg-map':'bg-map-q','지도',[[6,30,26,32,'미오의 집',home],[38,14,26,32,S.f.c1?'코에 프로덕션':'🔒',()=>S.f.c1?lobby():toast('아직 갈 수 없다'),null,S.f.c1?'':'lock'],[68,42,26,32,S.f.hotel?'호텔 아오조라 신주쿠':'?',()=>S.f.hotel?hotel():toast('아직 갈 수 없다')]],S.f.hotel?'':'bg-map')}
 /* ---- 챕터 1: 미오의 집 ---- */
 function home(){if(!S.f.h){S.f.h=1;R('bg-home','미오의 집',[],'');say([['다카하시','안녕하세요. 미오 씨 매니저를 맡고 있는 다카하시입니다.'],['다카하시','미오 씨 연락이 안 돼서 저도 걱정이 많습니다.'],['다카하시','집 열쇠는 제가 맡아두고 있었어요.'],['','매니저는 문을 열어주고 자리를 떠났다.']],room)}else room()}
-function room(){const o=S.f.dr;R(o?'bg-home-open':'bg-home','미오의 집 · 방과 거실',[
+function room(){const o=S.f.dr;R(o?'bg-home-open':'bg-home','미오의 집 · 거실',[
 [12.3,21.2,36.4,38.3,'TV',it=>{if(!S.f.tv){if(it!='remote')return say([['','TV는 꺼져 있다. 리모콘이 필요하다.']]);rm('remote');S.f.tv=1}tvOn()},'remote'],
 [44.8,81,8.5,14,'리모콘',()=>{if(S.f.rc)return;S.f.rc=1;give('remote')}],
 [62.4,2.8,20.9,41,'달력',()=>cal(10)],
@@ -155,23 +174,29 @@ function lobby(){R('bg-lobby','코에 프로덕션 · 로비',[[27.5,56.5,40.5,1
 function elev(){md(`<h3>🛗 층 선택</h3><button onclick="fl(1)">1 로비</button> <button onclick="fl(4)">4 녹음실</button> <button onclick="fl(8)" ${S.f.ev?'':'disabled'}>${S.f.ev?'8 사장실':'🔒 8'}</button>`)}
 function fl(n){cm();n==1?lobby():n==4?f4():up8()}
 function f4(){R('bg-studiodoor','4층',[[28,18,30,64,'녹음실 문',rec],[74,30,18,40,'엘리베이터',elev]])}
-function rec(){R('bg-studio','4층 · 녹음실',[[6,14,34,42,'녹음실 PC',pc],[52,18,20,46,'보면대',()=>{if(S.f.pa)return say([['','악보는 없다. 이제 빈 보면대뿐이다.']]);S.f.pa=1;give('paper');say([['','세로쓰기 종이 한 장이 꽂혀 있다. 「미래소년의 모험」. 용도는 아직 모르겠다.']])}],[45,85,10,12,'▼',f4,null,'a']])}
+function rec(){R('bg-studio','4층 · 녹음실',[[6,14,34,42,'녹음실 PC',pc],[52,18,20,46,'보면대',()=>{if(S.f.pa)return say([['','악보는 없다. 이제 빈 보면대뿐이다.']]);S.f.pa=1;give('paper');say([['','대본 한 장이 꽂혀 있다. 용도는 아직 모르겠다.']])}],[47.5,91,5,6.5,'▼',f4,null,'a']])}
 const FL=[['CM_narration_1009','10/9',0],['MIO_voice_1011','10/11',1],['MIO_voice_1014','10/14',1],['STAFF_demo_1016','10/16',0],['MIO_voice_1019','10/19',1],['SE_mix_1023','10/23',0]];
 function pc(){if(S.f.ev)return say([['','필요한 음성 파일은 이미 증거로 확보했다.']]);md(`<h3>🖥️ 음성 파일 목록 (생성 일시)</h3><p style="font-size:13px;margin:0 0 6px">미오의 폰 캘린더에는 10월에 녹음 일정이 없었다. 그런데 만들어져 있는 미오의 목소리 파일 3개를 고르자.</p>${FL.map((f,i)=>`<label class="opt"><input type="checkbox" value="${i}"> ${f[0]}.wav · 2026-${f[1].replace('/','-')}</label>`).join('')}<button onclick="pcOk()">증거로 저장</button><p id="pm"></p>`)}
 function pcOk(){const v=[...document.querySelectorAll('input:checked')].map(e=>+e.value);if(v.join()=='1,2,4'){S.f.ev=1;cm();sfx.ok();give('log');say([['','일정에 없던 날, 미오의 목소리가 만들어지고 있었다. 회사는 단순 피해자가 아니다. 음성 복제의 주체다.'],['','엘리베이터의 8층 버튼이 활성화되었다.']])}else $('#pm').textContent='맞지 않는다. 폰 캘린더와 다시 대조해 보자.'}
 /* ---- 챕터 3: 8층 사장실 ---- */
 function up8(){if(S.f.u8)return S.v='d',office();S.f.u8=1;R('bg-lobby','8층',[]);say([['','의뢰 때 사장이 말했다. 내일 협찬사 미팅으로 자리를 비운다고.'],['','사장이 없는 지금이라면. 나는 엘리베이터로 8층에 올라가 사장실을 조사하기로 했다.']],()=>{S.v='d';office()})}
-function office(){const d=S.v=='d';R(d?'bg-ceo-desk':'bg-ceo-wall','8층 · 사장실'+(d?' (책상)':' (뒤편)'),d?[[6,16,44,46,'사장 PC',pcw],[62,28,20,48,'코트',coat],[34,80,32,14,'🔄 몸을 돌려 본다',()=>{S.v='b';office()},null,'a']]:[[5,10,24,48,'포스터',post],[36,14,30,50,'책장',shelf],[72,38,22,46,'서랍장',it=>{if(S.f.con)return contract();if(!it)return say([['','잠겨 있다.']]);rm('key');give('con');S.f.con=1;sfx.ok();contract();say([['','미오는 모르고, 대표와 제작사는 알고 짠 계약.']])},'key'],[34,80,32,14,'🔄 몸을 돌려 본다',()=>{S.v='d';office()},null,'a']])}
-function contract(){md('<h3>📑 신작 계약서</h3><p>출연 및 음성 이용 계약. …</p><p style="font-size:8px;opacity:.7">제12조 AI 학습 및 상업적 활용 포괄 동의. 갑은 을의 음성을 AI 학습 및 상업적으로 활용할 수 있다.</p><p>서명일: <b>8월 7일</b></p>')}
-function pcw(){if(S.f.pc)return mail();md(`<h3>🖥️ 사장 PC</h3><p>비밀번호 4자리<br><small>힌트: 대표의 첫 성공작 방영일 (월일)</small></p><input id="pw" maxlength="4" inputmode="numeric" style="font:inherit;padding:5px;width:90px"> <button onclick="pwOk()">확인</button><p id="pm"></p>`)}
-function pwOk(){if($('#pw').value=='0406'){S.f.pc=1;sfx.ok();mail()}else{sfx.err();$('#pm').textContent=S.f.post?'틀렸다.':'단서가 없다. 몸을 돌려 주변부터 살펴보자.'}}
-function mail(){md(`<h3>✉️ 메일 · 검색 기록</h3><div class="bub"><i>토도 슈이치(스튜디오 하나비) → 쿠로다 · 8월</i>AI 학습 조항은 소속 성우에게 따로 설명하지 않고 계약을 진행하겠습니다.</div><div class="bub me"><i>쿠로다 · 8월</i>12/24 콘서트는 미오 본인 음성 대신 AI 음원으로 대체한다. 준비해 주세요.</div><p>🔍 “음성 AI 학습 비용”<br>🔍 “성우 위약금 규정”</p>`);say([['','AI 학습 조항을 알고 짠 계약, 그리고 콘서트의 AI 대체 계획. 모두 8월부터 시작된 일이다.']])}
+function office(){const d=S.v=='d';R(d?'bg-ceo-desk':'bg-ceo-wall','8층 · 사장실'+(d?' (책상)':' (뒤편)'),d?[[6,16,44,46,'사장 PC',pcw],[62,28,20,48,'코트',coat],[41,91,18,6.5,'🔄 몸을 돌려 본다',()=>{S.v='b';office()},null,'a']]:[[5,10,24,48,'포스터',post],[36,14,30,50,'책장',shelf],[72,38,22,46,'서랍장',it=>{if(S.f.con)return contract();if(!it)return say([['','잠겨 있다.']]);rm('key');give('con');S.f.con=1;sfx.ok();contract();say([['','미오는 모르고, 대표와 제작사는 알고 짠 계약.']])},'key'],[41,91,18,6.5,'🔄 몸을 돌려 본다',()=>{S.v='d';office()},null,'a']])}
+function contract(){md(CTX)}
+function pcw(){if(S.f.pc)return pcHome();md(`<h3>🖥️ 사장 PC</h3><p>비밀번호 4자리</p><input id="pw" maxlength="4" inputmode="numeric" style="font:inherit;padding:5px;width:90px"> <button onclick="pwOk()">확인</button><p id="pm"></p>`)}
+function pwOk(){if($('#pw').value=='0406'){S.f.pc=1;sfx.ok();pcHome()}else{sfx.err();$('#pm').textContent=S.f.post?'틀렸다.':'단서가 없다. 몸을 돌려 주변부터 살펴보자.'}}
+function pcHome(){md(`<div class="pcw"><div class="tb">사장 PC</div><div class="desk"><button onclick="mailApp()"><i>📧</i>메일</button><button onclick="webApp()"><i>🌐</i>인터넷</button></div></div>`,9,'pm')}
+const ML=[['토도 슈이치 (스튜디오 하나비)','쿠로다 마사유키','8월 2일','신작 계약 건','AI 학습 조항은 소속 성우에게 따로 설명하지 않고 계약을 진행하겠습니다.'],['쿠로다 마사유키','제작팀','8월 10일','12/24 콘서트 건','12/24 콘서트는 미오 본인 음성 대신 AI 음원으로 대체한다. 준비해 주세요.']];
+function mailApp(i){const bar='<div class="tb"><span>메일</span><button onclick="pcHome()">‹ 바탕화면</button></div>';
+if(i==null)return md(`<div class="pcw">${bar}${ML.map((m,j)=>`<div class="mrow" onclick="mailApp(${j})"><b>${m[0].split(' (')[0]}</b><span>${m[3]}</span><small>${m[2]}</small></div>`).join('')}</div>`,9,'pm');
+const m=ML[i];S.f['m'+i]=1;md(`<div class="pcw">${bar}<div class="mv"><div class="mh2">보낸 사람: ${m[0]}<br>받는 사람: ${m[1]}<br>날짜: ${m[2]}<br>제목: ${m[3]}</div><p>${m[4]}</p><button onclick="mailApp()">‹ 받은 편지함</button></div></div>`,9,'pm');
+if(S.f.m0&&S.f.m1&&!S.f.mn){S.f.mn=1;say([['','AI 학습 조항을 알고 짠 계약, 그리고 콘서트의 AI 대체 계획. 모두 8월부터 시작된 일이다.']])}}
+function webApp(){md(`<div class="pcw"><div class="tb"><span>인터넷</span><button onclick="pcHome()">‹ 바탕화면</button></div><div class="web"><div class="sbx"><span>🔍</span><input id="sq" placeholder="검색어를 입력하세요" onfocus="$('#hh').style.display='block'"></div><div id="hh"><small>최근 검색 기록</small><div>🕘 “음성 AI 학습 비용”</div><div>🕘 “성우 위약금 규정”</div></div></div></div>`,9,'pm')}
 function coat(){if(S.f.cd)return say([['','코트 속은 비었다.']]);S.f.cd=1;give('card');say([['','코트 속 명함. 스튜디오 하나비 대표, 토도 슈이치.'],['','TV 엔딩의 로고와 같은 이름이다.']])}
 function post(){S.f.post=1;say([['','포스터 〈미래소년의 모험〉. 방영 4월 6일. 대표의 첫 성공작이다.']])}
 function shelf(){if(S.f.kd)return say([['','책장은 정리되어 있다.']]);if(!S.inv.includes('paper'))return say([['','파일 일곱 권. 순서를 알 수 없다.']]);
 let o=[['모','모니터링 기록',10,88],['험','험지 출장 보고',40,100],['미','미디어 계약',200,92],['년','년도별 정산',140,96],['래','래핑 광고 정산',270,84],['의','의뢰 문서',330,100],['소','소속 성우 명부',90,90]],dr=null;const ans='미래소년의모험';
-md(`<h3>📚 책장</h3><div style="display:flex;gap:14px;align-items:flex-end;justify-content:center;flex-wrap:wrap"><div class="v">미래소년의 모험</div><div id="shw"><div id="sh"></div><div class="plank"></div></div></div><p style="font-size:13px;margin:8px 0 0">책을 끌어서 종이의 순서대로 꽂아 보자.</p>`);
-const sh=$('#sh'),draw=()=>{sh.innerHTML=o.map((b,i)=>`<div class="bkv" data-i="${i}" style="--h:${b[2]};height:${b[3]}%"><b>${b[0]}</b><span>${b[1]}</span></div>`).join('')};draw();
+md(`<h3>📚 책장</h3><div style="display:flex;gap:14px;align-items:flex-end;justify-content:center;flex-wrap:wrap"><div id="shw"><div id="sh"></div><div class="plank"></div></div></div><p style="font-size:13px;margin:8px 0 0">책을 끌어서 순서대로 꽂아 보자.</p>`);
+const sh=$('#sh'),draw=()=>{sh.innerHTML=o.map((b,i)=>`<div class="bkv" data-i="${i}" style="--h:${b[2]};height:${b[3]}%"><span>${b[1]}</span></div>`).join('')};draw();
 sh.onpointerdown=e=>{const el=e.target.closest('.bkv');if(!el)return;dr={i:+el.dataset.i,el,x:e.clientX,y:e.clientY};el.setPointerCapture(e.pointerId);el.classList.add('lift')};
 sh.onpointermove=e=>{if(dr)dr.el.style.transform=`translate(${e.clientX-dr.x}px,${Math.min(0,e.clientY-dr.y)-8}px)`};
 sh.onpointerup=e=>{if(!dr)return;const r=sh.getBoundingClientRect(),j=Math.max(0,Math.min(o.length-1,Math.floor((e.clientX-r.left)/(r.width/o.length)))),[bk]=o.splice(dr.i,1);o.splice(j,0,bk);dr=null;draw();tone(300,.08,'triangle',.08);
@@ -206,7 +231,7 @@ const HT=[[()=>!S.f.dr,['방 안을 둘러보자. 서랍장이 눈에 띈다.','
 [()=>!S.f.un,['메모장과 달력에 같은 색으로 표시된 부분이 있군.','메모장에 적힌 요일의 순서대로 달력의 날짜를 연결해 보면 어떨까?']],
 [()=>!S.f.ev,['지도에서 코에 프로덕션에 가 보자. 4층 녹음실의 PC가 수상하다.','미오의 캘린더에는 10월에 녹음 일정이 없다. 그런데 만들어진 미오의 목소리 파일이 있다면?']],
 [()=>!S.f.pc,['8층이 열렸다. 사장실 PC의 비밀번호는 네 자리. 몸을 돌려 주변부터 살펴보자.','대표의 첫 성공작 〈미래소년의 모험〉이 방영된 날을 월일 네 자리로 입력해 보자.']],
-[()=>!S.f.kd,['세로쓰기 종이와 책장의 파일 일곱 권을 비교해 보자.','종이에 적힌 글자 순서대로, 책 제목의 첫 글자가 맞도록 끌어서 꽂아 보자.']],
+[()=>!S.f.kd,['대본에 적힌 글자와 책장의 파일 일곱 권을 비교해 보자.','대본에 적힌 글자 순서대로, 책 제목의 첫 글자가 맞도록 끌어서 꽂아 보자.']],
 [()=>!S.f.con,['얻은 열쇠는 어딘가의 잠금을 여는 데 쓰는 것 같다. 인벤토리에서 끌어다 놓아 보자.','열쇠로 열 수 있는 건 몸을 돌리면 보이는 서랍장이다.']],
 [()=>!S.f.sec,['보안 폴더의 질문은 계약과 관련이 있다. 계약서에서 날짜를 찾아보자.','계약서의 서명일을 월일 네 자리로 입력해 보자.']],
 [()=>!S.f.hotel,['각 질문은 서로 다른 증거 카드와 이어진다. 질문과 직접 관련된 카드만 고르자.','카드 6장은 네 질문에 나뉘어 쓰인다. 질문마다 어떤 카드가 맞는지 하나씩 맞춰 보자.']],
