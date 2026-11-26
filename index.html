@@ -54,6 +54,10 @@ button{font:inherit;background:#232838;color:var(--pp);border:1px solid #3a4157;
 #pl{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}#pm{text-align:center;margin:0;font-size:13px}
 .v{writing-mode:vertical-rl;font:800 22px 'Nanum Myeongjo',serif;background:var(--pp);color:#222;padding:12px 8px;margin:6px auto;height:190px;width:max-content}
 .bk{display:inline-block;margin:3px}.opt{display:block;margin:4px 0}.ev label{display:inline-block;margin:3px 8px 3px 0;font-size:13px}
+#shw{width:min(380px,88vw)}#sh{display:flex;gap:3px;align-items:flex-end;height:150px;padding:0 6px;touch-action:none}
+.bkv{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;border-radius:3px 3px 0 0;background:hsl(var(--h) 35% 38%);border:1px solid #0006;color:#f3e9d2;cursor:grab;user-select:none;padding:6px 0;overflow:hidden;position:relative}
+.bkv b{font:800 20px 'Nanum Myeongjo',serif;border-bottom:1px solid #fff5;padding-bottom:2px;margin-bottom:4px}.bkv span{writing-mode:vertical-rl;font-size:11px;line-height:1.1}.bkv.lift{z-index:5;cursor:grabbing;box-shadow:0 8px 14px #000a}
+.plank{height:10px;background:#6a4a2a;border-radius:2px}
 .end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:10px}.end h1{font:800 clamp(28px,7vw,56px) 'Nanum Myeongjo',serif;margin:0}
 #toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#000d;border:1px solid var(--am);padding:5px 14px;border-radius:20px;opacity:0;transition:opacity .3s;z-index:30;pointer-events:none}#toast.on{opacity:1}
 #rot{display:none;position:fixed;inset:0;background:#000e;z-index:50;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
@@ -109,7 +113,7 @@ function cm(){$('#md').style.display='none'}
 /* ---- 시작 · 프롤로그 ---- */
 function title(){document.body.classList.add('ttl');inv();fit();R('bg-title','',[[32,70,36,14,'게임 시작',prol]])}
 function prol(){document.body.classList.remove('ttl');fit();S.go=1;bgs();R('bg-office','탐정 사무소',[]);say([['','비 오는 저녁. 책상 위에는 월세 독촉장이 세 장.'],['','독촉장이 세 장째 쌓인 날, 일은 대개 문을 두드린다.'],['대표','처음 뵙겠습니다. 코에 프로덕션 대표, 쿠로다 마사유키입니다.'],['대표','저희 소속 성우 ‘이시카와 미오’가 며칠 동안 연락이 닿지 않습니다.'],['대표','콘서트는 모레고, 취소되면 협찬사에 막대한 손해를 물게 됩니다.'],['대표','미오가 어디 있는지 알려주십시오. 기한은 콘서트 전날까지.'],['대표','외부에서 새어 나가선 안 됩니다.'],['대표','선금은 지금, 잔금은 결과를 보고 드리겠습니다.'],['대표','저는 내일 협찬사 미팅으로 자리를 비웁니다. 미오 집은 매니저한테 말해 놓겠습니다.'],['','사라진 이유를 모른다는 사람치고는 준비가 너무 빨랐다.'],['','대중은 아무것도 모른다. 광고 속 그녀의 목소리는 오늘도 멀쩡히 흘러나오고 있다.']],()=>{$('#bm').style.display=$('#bh').style.display='inline-block';toast('지도와 인벤토리가 열렸다');map()})}
-function map(){cm();R('bg-map','지도',[[6,30,26,32,'미오의 집',home],[38,14,26,32,S.f.c1?'코에 프로덕션':'🔒',()=>S.f.c1?lobby():toast('아직 갈 수 없다'),null,S.f.c1?'':'lock'],[68,42,26,32,S.f.hotel?'호텔 아오조라 신주쿠':'🔒',()=>S.f.hotel?hotel():toast('아직 갈 수 없다'),null,S.f.hotel?'':'lock']])}
+function map(){cm();R(S.f.hotel?'bg-map':'bg-map-q','지도',[[6,30,26,32,'미오의 집',home],[38,14,26,32,S.f.c1?'코에 프로덕션':'🔒',()=>S.f.c1?lobby():toast('아직 갈 수 없다'),null,S.f.c1?'':'lock'],[68,42,26,32,S.f.hotel?'호텔 아오조라 신주쿠':'?',()=>S.f.hotel?hotel():toast('아직 갈 수 없다')]],S.f.hotel?'':'bg-map')}
 /* ---- 챕터 1: 미오의 집 ---- */
 function home(){if(!S.f.h){S.f.h=1;R('bg-home','미오의 집',[],'');say([['다카하시','안녕하세요. 미오 씨 매니저를 맡고 있는 다카하시입니다.'],['다카하시','미오 씨 연락이 안 돼서 저도 걱정이 많습니다.'],['다카하시','집 열쇠는 제가 맡아두고 있었어요.'],['','매니저는 문을 열어주고 자리를 떠났다.']],room)}else room()}
 function room(){const o=S.f.dr;R(o?'bg-home-open':'bg-home','미오의 집 · 방과 거실',[
@@ -164,9 +168,15 @@ function pwOk(){if($('#pw').value=='0406'){S.f.pc=1;sfx.ok();mail()}else{sfx.err
 function mail(){md(`<h3>✉️ 메일 · 검색 기록</h3><div class="bub"><i>토도 슈이치(스튜디오 하나비) → 쿠로다 · 8월</i>AI 학습 조항은 소속 성우에게 따로 설명하지 않고 계약을 진행하겠습니다.</div><div class="bub me"><i>쿠로다 · 8월</i>12/24 콘서트는 미오 본인 음성 대신 AI 음원으로 대체한다. 준비해 주세요.</div><p>🔍 “음성 AI 학습 비용”<br>🔍 “성우 위약금 규정”</p>`);say([['','AI 학습 조항을 알고 짠 계약, 그리고 콘서트의 AI 대체 계획. 모두 8월부터 시작된 일이다.']])}
 function coat(){if(S.f.cd)return say([['','코트 속은 비었다.']]);S.f.cd=1;give('card');say([['','코트 속 명함. 스튜디오 하나비 대표, 토도 슈이치.'],['','TV 엔딩의 로고와 같은 이름이다.']])}
 function post(){S.f.post=1;say([['','포스터 〈미래소년의 모험〉. 방영 4월 6일. 대표의 첫 성공작이다.']])}
-function shelf(){if(S.f.kd)return say([['','책장은 정리되어 있다.']]);if(!S.inv.includes('paper'))return say([['','파일 일곱 권. 순서를 알 수 없다.']]);let n=0;const bk=[['모','모니터링 기록'],['험','험지 출장 보고'],['미','미디어 계약'],['년','년도별 정산'],['래','래핑 광고 정산'],['의','의뢰 문서'],['소','소속 성우 명부']],ans='미래소년의모험';
-md(`<h3>📚 책장 파일 7권</h3><div class="v">미래소년의 모험</div><p style="font-size:13px">종이의 순서대로 파일을 눌러 꽂자.</p>${bk.map(b=>`<button class="bk" onclick="bk(this,'${b[0]}')">${b[1]}</button>`).join('')}<p id="pm"></p>`);
-window.bk=(e,c)=>{if(c==ans[n]){n++;e.disabled=true;if(n==7){S.f.kd=1;cm();sfx.ok();give('key');say([['','파일을 순서대로 정리하자 책장 뒤에서 작은 열쇠가 떨어졌다.']])}}else{n=0;document.querySelectorAll('.bk').forEach(x=>x.disabled=false);$('#pm').textContent='순서가 다르다. 처음부터.'}}}
+function shelf(){if(S.f.kd)return say([['','책장은 정리되어 있다.']]);if(!S.inv.includes('paper'))return say([['','파일 일곱 권. 순서를 알 수 없다.']]);
+let o=[['모','모니터링 기록',10,88],['험','험지 출장 보고',40,100],['미','미디어 계약',200,92],['년','년도별 정산',140,96],['래','래핑 광고 정산',270,84],['의','의뢰 문서',330,100],['소','소속 성우 명부',90,90]],dr=null;const ans='미래소년의모험';
+md(`<h3>📚 책장</h3><div style="display:flex;gap:14px;align-items:flex-end;justify-content:center;flex-wrap:wrap"><div class="v">미래소년의 모험</div><div id="shw"><div id="sh"></div><div class="plank"></div></div></div><p style="font-size:13px;margin:8px 0 0">책을 끌어서 종이의 순서대로 꽂아 보자.</p>`);
+const sh=$('#sh'),draw=()=>{sh.innerHTML=o.map((b,i)=>`<div class="bkv" data-i="${i}" style="--h:${b[2]};height:${b[3]}%"><b>${b[0]}</b><span>${b[1]}</span></div>`).join('')};draw();
+sh.onpointerdown=e=>{const el=e.target.closest('.bkv');if(!el)return;dr={i:+el.dataset.i,el,x:e.clientX,y:e.clientY};el.setPointerCapture(e.pointerId);el.classList.add('lift')};
+sh.onpointermove=e=>{if(dr)dr.el.style.transform=`translate(${e.clientX-dr.x}px,${Math.min(0,e.clientY-dr.y)-8}px)`};
+sh.onpointerup=e=>{if(!dr)return;const r=sh.getBoundingClientRect(),j=Math.max(0,Math.min(o.length-1,Math.floor((e.clientX-r.left)/(r.width/o.length)))),[bk]=o.splice(dr.i,1);o.splice(j,0,bk);dr=null;draw();tone(300,.08,'triangle',.08);
+if(o.map(b=>b[0]).join('')==ans){S.f.kd=1;cm();sfx.ok();give('key');say([['','파일을 순서대로 정리하자 책장 뒤에서 작은 열쇠가 떨어졌다.']])}};
+sh.onpointercancel=()=>{dr=null;draw()}}
 /* ---- 챕터 4: 최종 추리 ---- */
 const E={A:'🎧 음성 로그',B:'📑 신작 계약서',C:'💻 대표 PC 메일',D:'🪪 제작사 명함',E:'🎙️ 항의 묵살 대화',F:'🔑 카드키 사진'};
 const QS=[['미오는 왜 사라졌나?',['누군가에게 납치되었다','사고를 당했다','항의가 묵살되고 AI 대체를 눈치채 스스로 잠적했다','연인과 도피했다'],2,'E'],['미오의 목소리를 복제한 주체는?',['경쟁 성우','코에 프로덕션 대표가 제작사와 함께','해커','팬 커뮤니티'],1,'AD'],['미오가 모르고 있던 것은?',['출연료 인상','콘서트 일정 변경','AI 학습 포괄 동의 계약과 콘서트 AI 대체 계획','협찬사 교체'],2,'BC'],['미오는 지금 어디에 있나?',['미오의 집','코에 프로덕션 8층','호텔 아오조라 신주쿠 1507호','지방 공연장'],2,'F']];
@@ -196,7 +206,7 @@ const HT=[[()=>!S.f.dr,['방 안을 둘러보자. 서랍장이 눈에 띈다.','
 [()=>!S.f.un,['메모장과 달력에 같은 색으로 표시된 부분이 있군.','메모장에 적힌 요일의 순서대로 달력의 날짜를 연결해 보면 어떨까?']],
 [()=>!S.f.ev,['지도에서 코에 프로덕션에 가 보자. 4층 녹음실의 PC가 수상하다.','미오의 캘린더에는 10월에 녹음 일정이 없다. 그런데 만들어진 미오의 목소리 파일이 있다면?']],
 [()=>!S.f.pc,['8층이 열렸다. 사장실 PC의 비밀번호는 네 자리. 몸을 돌려 주변부터 살펴보자.','대표의 첫 성공작 〈미래소년의 모험〉이 방영된 날을 월일 네 자리로 입력해 보자.']],
-[()=>!S.f.kd,['세로쓰기 종이와 책장의 파일 일곱 권을 비교해 보자.','종이에 적힌 글자 순서대로, 각 파일 제목의 첫 글자를 맞춰 꽂아 보자.']],
+[()=>!S.f.kd,['세로쓰기 종이와 책장의 파일 일곱 권을 비교해 보자.','종이에 적힌 글자 순서대로, 책 제목의 첫 글자가 맞도록 끌어서 꽂아 보자.']],
 [()=>!S.f.con,['얻은 열쇠는 어딘가의 잠금을 여는 데 쓰는 것 같다. 인벤토리에서 끌어다 놓아 보자.','열쇠로 열 수 있는 건 몸을 돌리면 보이는 서랍장이다.']],
 [()=>!S.f.sec,['보안 폴더의 질문은 계약과 관련이 있다. 계약서에서 날짜를 찾아보자.','계약서의 서명일을 월일 네 자리로 입력해 보자.']],
 [()=>!S.f.hotel,['각 질문은 서로 다른 증거 카드와 이어진다. 질문과 직접 관련된 카드만 고르자.','카드 6장은 네 질문에 나뉘어 쓰인다. 질문마다 어떤 카드가 맞는지 하나씩 맞춰 보자.']],
